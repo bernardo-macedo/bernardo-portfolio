@@ -1,0 +1,39 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+//Breakpoints
+$breakpoint: 768px;
+
+//Font
+$font-family-main: "Inter", sans-serif;
+
+$font-xsmall: 0.8rem;
+$font-small: 1rem;
+$font-medium: 1.5rem;
+$font-large: 2rem;
+$font-xlarge: 3rem;
+
+$font-weight-regular: 500;
+$font-weight-semibold: 600;
+$font-weight-bold: 800;
+
+//Colors
+$background-color-light: #f5f5f5;
+$background-color-gray: #e6e6e6;
+$text-color-light: #333;
+$background-color-dark: #333;
+$text-color-dark: #fff;
+
+//Padding
+$padding-xsmall: 0.8rem;
+$padding-small: 2rem;
+$padding-medium: 4rem;
+$padding-large: 8rem;
+
+//Grid
+/* Mixin for common styles */
+@mixin grid-2col {
+  padding-block: 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
