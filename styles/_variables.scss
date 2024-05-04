@@ -30,10 +30,25 @@ $padding-medium: 4rem;
 $padding-large: 8rem;
 
 //Grid
+
 /* Mixin for common styles */
 @mixin grid-2col {
   padding-block: 4rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+}
+
+@mixin fade-in-styles {
+  scale: 0.8;
+  opacity: 0;
+  animation: fade-in linear forwards;
+  animation-timeline: view();
+  animation-range: entry;
+}
+
+@mixin fade-out-styles {
+  animation: fade-out linear;
+  animation-timeline: view();
+  animation-range: exit;
 }

@@ -76,6 +76,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include fade-out-styles;
 
     .skills {
       display: flex;
@@ -91,7 +92,7 @@ header {
           display: block;
           margin-inline: auto;
           margin-bottom: 0.5rem;
-          width: 40px;
+          width: 30px;
           opacity: 0.6;
         }
       }
@@ -109,6 +110,7 @@ main {
       background-color: $text-color-dark;
       border-radius: 0.5rem;
       overflow: hidden;
+      @include fade-in-styles;
 
       img {
         aspect-ratio: 1/1;
@@ -135,6 +137,7 @@ main {
       border-radius: 0.5rem;
       aspect-ratio: 16/9;
       object-fit: cover;
+      @include fade-in-styles;
     }
   }
 }
@@ -143,20 +146,89 @@ footer {
   display: flex;
   justify-content: center;
   background-color: $background-color-light;
-  padding-block: 2rem;
+  padding: 2rem;
+}
+
+//Utility classes
+
+.button {
+  display: inline-block;
+  font-size: $font-xsmall;
+  padding: $padding-xsmall $padding-small;
+  background-color: $text-color-light;
+  color: $text-color-dark;
+  margin: 1rem 1rem 0 0;
+  border: 2px solid $text-color-light;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: transparent;
+  border: 2px solid $text-color-light;
+  color: $text-color-light;
+}
+
+.button-shadow {
+  background-color: transparent;
+  color: $text-color-light;
+  border: 2px solid $text-color-light;
+  transition: 0.3s;
+}
+
+.button-shadow:hover {
+  background-color: $text-color-light;
+  border: 2px solid $text-color-light;
+  color: $text-color-dark;
+}
+
+.slide-in {
+  transform: translateY(-30%);
+  opacity: 0;
+  animation: slide-in-animation 1.5s ease-out forwards;
+}
+
+//ANIMATION KEYFRAMES
+@keyframes slide-in-animation {
+  20% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fade-in {
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  to {
+    opacity: 0;
+  }
 }
 
 @media (max-width: $breakpoint) {
   header {
     padding-inline: $padding-small;
 
+    .logo {
+      font-size: $font-small;
+    }
+
     nav > ul > li {
-      margin-left: 2rem;
+      margin-left: 1rem;
+      font-size: $font-small;
     }
 
     .hero {
       .skills {
-        gap: 1rem;
+        display: none;
 
         div {
           img {
@@ -177,53 +249,5 @@ footer {
     #about {
       grid-template-columns: 1fr;
     }
-  }
-}
-
-//Utility classes
-
-.button {
-  display: inline-block;
-  font-size: $font-small;
-  padding: $padding-xsmall $padding-small;
-  background-color: $text-color-light;
-  color: $text-color-dark;
-  margin: 1rem 1rem 0 0;
-  border: 2px solid $text-color-light;
-  border-radius: 2rem;
-}
-
-.button:hover {
-  background-color: transparent;
-  border: 2px solid $text-color-light;
-  color: $text-color-light;
-}
-
-.button-shadow {
-  background-color: transparent;
-  color: $text-color-light;
-  border: 2px solid $text-color-light;
-}
-
-.button-shadow:hover {
-  background-color: $text-color-light;
-  border: 2px solid $text-color-light;
-  color: $text-color-dark;
-}
-
-.slide-in {
-  transform: translateY(-30%);
-  opacity: 0;
-  animation: slide-in-animation 1.5s ease-out forwards;
-}
-
-@keyframes slide-in-animation {
-  20% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0%);
   }
 }
