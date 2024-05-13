@@ -52,6 +52,10 @@ img {
 }
 
 /* Mixin for common styles */
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Inter", sans-serif;
   font-size: 1rem;
@@ -99,12 +103,12 @@ header nav {
 }
 header nav ul {
   text-align: right;
+  display: flex;
+  gap: 4rem;
 }
 header nav ul li {
   font-size: 1rem;
   font-weight: 600;
-  display: inline-block;
-  margin-left: 4rem;
 }
 header nav ul li a:hover {
   opacity: 0.6;
@@ -145,6 +149,11 @@ main #work {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
 }
+@media (max-width: 768px) {
+  main #work {
+    padding-top: 0;
+  }
+}
 main #work div {
   background-color: #fff;
   border-radius: 0.5rem;
@@ -156,7 +165,7 @@ main #work div {
   animation-range: entry;
 }
 main #work div img {
-  aspect-ratio: 1/1;
+  height: 300px;
   object-fit: cover;
 }
 main #work div div {
@@ -169,6 +178,11 @@ main #about {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+}
+@media (max-width: 768px) {
+  main #about {
+    padding-top: 0;
+  }
 }
 main #about div {
   display: flex;
@@ -257,9 +271,48 @@ footer {
   header .logo {
     font-size: 1rem;
   }
-  header nav > ul > li {
-    margin-left: 1rem;
-    font-size: 1rem;
+  header .hamburguer {
+    display: block;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    transition: all 0.25s;
+    position: relative;
+  }
+  header .hamburguer span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    transform: rotate(0);
+    transition: all 0.5s;
+  }
+  header .hamburguer span:nth-child(2) {
+    transform: translateY(7px);
+  }
+  header .hamburguer span:nth-child(3) {
+    transform: translateY(14px);
+  }
+  header nav > ul {
+    position: absolute;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    left: 0;
+    right: 0;
+    top: 50px;
+    height: calc(100vh - 50px);
+    background: linear-gradient(to right, #d8dcdf, #eef2f3);
+    z-index: 50;
+    transform: scale(0);
+    transition-duration: 200ms;
+    transform-origin: top right;
+  }
+  header nav > ul li {
+    font-size: 2rem;
   }
   header .hero .skills {
     display: none;
@@ -276,6 +329,30 @@ footer {
   main #about {
     grid-template-columns: 1fr;
   }
+}
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburguer-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburguer-middle {
+  display: none;
+}
+
+.open .hamburguer-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px) !important;
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+.hide-overflow {
+  overflow-y: hidden;
 }
 
 /*# sourceMappingURL=styles.css.map */

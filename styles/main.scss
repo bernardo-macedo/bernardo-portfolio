@@ -1,6 +1,10 @@
 @import "reset";
 @import "variables";
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: $font-family-main;
   font-size: $font-small;
@@ -52,17 +56,16 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     padding-block: $padding-xsmall;
 
     ul {
       text-align: right;
+      display: flex;
+      gap: 4rem;
 
       li {
         font-size: $font-small;
         font-weight: $font-weight-semibold;
-        display: inline-block;
-        margin-left: 4rem;
 
         a:hover {
           opacity: 0.6;
@@ -113,7 +116,7 @@ main {
       @include fade-in-styles;
 
       img {
-        aspect-ratio: 1/1;
+        height: 300px;
         object-fit: cover;
       }
       div {
@@ -221,9 +224,53 @@ footer {
       font-size: $font-small;
     }
 
-    nav > ul > li {
-      margin-left: 1rem;
-      font-size: $font-small;
+    .hamburguer {
+      display: block;
+      cursor: pointer;
+      width: 24px;
+      height: 24px;
+      transition: all 0.25s;
+      position: relative;
+
+      span {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 24px;
+        height: 2px;
+        background: #000;
+        transform: rotate(0);
+        transition: all 0.5s;
+      }
+
+      span:nth-child(2) {
+        transform: translateY(7px);
+      }
+
+      span:nth-child(3) {
+        transform: translateY(14px);
+      }
+    }
+
+    nav > ul {
+      position: absolute;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 2rem;
+      left: 0;
+      right: 0;
+      top: 50px;
+      height: calc(100vh - 50px);
+      background: linear-gradient(to right, #d8dcdf, #eef2f3);
+      z-index: 50;
+      transform: scale(0);
+      transition-duration: 200ms;
+      transform-origin: top right;
+
+      li {
+        font-size: $font-large;
+      }
     }
 
     .hero {
@@ -250,4 +297,29 @@ footer {
       grid-template-columns: 1fr;
     }
   }
+}
+
+.open {
+  transform: rotate(90deg);
+  transform: translateY(0px);
+}
+
+.open .hamburguer-top {
+  transform: rotate(45deg) translateY(6px) translate(6px);
+}
+
+.open .hamburguer-middle {
+  display: none;
+}
+
+.open .hamburguer-bottom {
+  transform: rotate(-45deg) translateY(6px) translate(-6px) !important;
+}
+
+.scale-100 {
+  transform: scale(1);
+}
+
+.hide-overflow {
+  overflow-y: hidden;
 }

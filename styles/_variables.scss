@@ -37,6 +37,10 @@ $padding-large: 8rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+
+  @media (max-width: $breakpoint) {
+    padding-top: 0;
+  }
 }
 
 @mixin fade-in-styles {
