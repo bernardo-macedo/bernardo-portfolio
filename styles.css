@@ -188,6 +188,7 @@ main #about div {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  line-height: 2rem;
 }
 main #about img {
   border-radius: 0.5rem;
@@ -200,7 +201,19 @@ main #about img {
   animation-range: entry;
 }
 
-footer {
+footer #reach-out {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-block: 4rem;
+  padding-inline: 2rem;
+  background-color: #333;
+  color: #fff;
+  font-size: 2rem;
+}
+footer #copyright {
   display: flex;
   justify-content: center;
   background-color: #f5f5f5;
@@ -235,6 +248,25 @@ footer {
 .button-shadow:hover {
   background-color: #333;
   border: 2px solid #333;
+  color: #fff;
+}
+
+.button-light {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.8rem 2rem;
+  background-color: #fff;
+  color: #333;
+  margin-top: 2rem;
+  border: 2px solid #fff;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+
+.button-light:hover {
+  background-color: transparent;
+  border: 2px solid #fff;
   color: #fff;
 }
 

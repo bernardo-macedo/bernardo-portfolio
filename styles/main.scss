@@ -134,6 +134,7 @@ main {
       display: flex;
       flex-direction: column;
       justify-content: center;
+      line-height: 2rem;
     }
 
     img {
@@ -146,10 +147,24 @@ main {
 }
 
 footer {
-  display: flex;
-  justify-content: center;
-  background-color: $background-color-light;
-  padding: 2rem;
+  #reach-out {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-block: $padding-medium;
+    padding-inline: $padding-small;
+    background-color: $background-color-dark;
+    color: $text-color-dark;
+    font-size: $font-large;
+  }
+  #copyright {
+    display: flex;
+    justify-content: center;
+    background-color: $background-color-light;
+    padding: 2rem;
+  }
 }
 
 //Utility classes
@@ -182,6 +197,25 @@ footer {
 .button-shadow:hover {
   background-color: $text-color-light;
   border: 2px solid $text-color-light;
+  color: $text-color-dark;
+}
+
+.button-light {
+  display: inline-block;
+  font-size: $font-xsmall;
+  font-weight: $font-weight-semibold;
+  padding: $padding-xsmall $padding-small;
+  background-color: $text-color-dark;
+  color: $text-color-light;
+  margin-top: 2rem;
+  border: 2px solid $text-color-dark;
+  border-radius: 2rem;
+  transition: 0.3s;
+}
+
+.button-light:hover {
+  background-color: transparent;
+  border: 2px solid $text-color-dark;
   color: $text-color-dark;
 }
 
