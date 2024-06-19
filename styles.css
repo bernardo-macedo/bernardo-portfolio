@@ -99,7 +99,7 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-block: 0.8rem;
+  padding-block: 2rem;
 }
 header nav ul {
   text-align: right;
@@ -276,6 +276,18 @@ footer #copyright {
   animation: slide-in-animation 1.5s ease-out forwards;
 }
 
+.slide-in-delayed {
+  transform: translateY(-30%);
+  opacity: 0;
+  animation: slide-in-animation 1.5s ease-out 1s forwards;
+}
+
+.waving {
+  animation: wave-animation 2s 2s;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
 @keyframes slide-in-animation {
   20% {
     opacity: 0;
@@ -294,6 +306,32 @@ footer #copyright {
 @keyframes fade-out {
   to {
     opacity: 0;
+  }
+}
+@keyframes wave-animation {
+  0% {
+    transform: rotate(0deg);
+  }
+  10% {
+    transform: rotate(14deg);
+  }
+  20% {
+    transform: rotate(-8deg);
+  }
+  30% {
+    transform: rotate(14deg);
+  }
+  40% {
+    transform: rotate(-4deg);
+  }
+  50% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(0deg);
   }
 }
 @media (max-width: 768px) {
